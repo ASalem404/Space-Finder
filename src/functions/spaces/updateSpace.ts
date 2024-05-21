@@ -1,6 +1,7 @@
 import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb";
 import { unmarshall } from "@aws-sdk/util-dynamodb";
 import { APIGatewayProxyEvent, APIGatewayProxyResultV2 } from "aws-lambda";
+import { parseJSON } from "../../utils/utils";
 export async function updateSpace(
   event: APIGatewayProxyEvent,
   ddbClient: DynamoDBClient
@@ -11,7 +12,7 @@ export async function updateSpace(
       body: JSON.stringify("Invalid request parameters!"),
     };
   const id = event.queryStringParameters.id;
-  const body = JSON.parse(event.body);
+  const body = parseJSON(event.body);
   const requestKey = Object.keys(body)[0];
   const requestValue = body[requestKey];
 
