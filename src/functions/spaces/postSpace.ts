@@ -13,7 +13,7 @@ export async function postSpace(
 
   validateAsSpaceEntry(item);
 
-  const result = await ddbClient.send(
+  await ddbClient.send(
     new PutItemCommand({
       TableName: process.env.TABLE_NAME,
       Item: marshall(item, { removeUndefinedValues: true }),
@@ -22,6 +22,6 @@ export async function postSpace(
 
   return {
     statusCode: 201,
-    body: JSON.stringify({ space: marshall(result.Attributes) }),
+    body: JSON.stringify({}),
   };
 }
