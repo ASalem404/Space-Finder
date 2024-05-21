@@ -1,3 +1,4 @@
+import { randomUUID } from "crypto";
 import { ParseJsonError } from "./validator";
 
 export function parseJSON(event: any) {
@@ -6,4 +7,8 @@ export function parseJSON(event: any) {
   } catch {
     throw new ParseJsonError();
   }
+}
+
+export function createRandomId() {
+  return randomUUID();
 }
