@@ -1,21 +1,34 @@
 
+@url = https://lkc94t7j75.execute-api.eu-central-1.amazonaws.com/prod/
+@token = eyJraWQiOiJwN1BLMnNBaXVXQmJtaTNCNXRMZTh3VENCbm1TVWlYc1wvQXVuNHF3UW04Yz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0M2Y0ODg1Mi1jMDYxLTcwOTEtZWRhNC0zMzk5MGY5NjczMzIiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtY2VudHJhbC0xLmFtYXpvbmF3cy5jb21cL2V1LWNlbnRyYWwtMV9DYm1ncFg0ekEiLCJjb2duaXRvOnVzZXJuYW1lIjoiQVNhbGVtNDA0Iiwib3JpZ2luX2p0aSI6ImY0MGQ1ZGVhLWE1NDAtNGRjNy04YTQ5LWNhOTdiZTlkYjk1NCIsImF1ZCI6IjI0OGZzZWNiYmZuZ3Qwb2RyNDZwb2FkMTk5IiwiZXZlbnRfaWQiOiJlMDllY2RjYS04ZjIyLTQyYmYtOThmNy1mOGYxMmRmNDc5YWIiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTcxNjMyMjg4OCwiZXhwIjoxNzE2MzI2NDg4LCJpYXQiOjE3MTYzMjI4ODgsImp0aSI6ImViNGZmMGIxLTk2NDEtNGI0YS1hMzM5LTgwMmRiMjhlNDAxYiIsImVtYWlsIjoiYXMyNzIwMDk0QGdtYWlsLmNvbSJ9.i6A97i4SDfm-FRyTxz_dMXskY4USh3S-20-VBP-w2g8XyKm3RZ0wQzjgj4mVKDkzcVwvl_jPv3M97gWF0DMas4X7_a0BqrUBAee4UUd8vBIoMv9wbBQN4QoPgI4dQ8zyqY7g27XHz9rz_R0SJqLnR_RNizvyDttuL_wz6LkceOHokIs3XBVHMteDEf8ncv4OTwBwZjPn8dj5KWyGpZDZBdfPGNjEn33vayRydCn5lwAK23ZT7BvTGTjS4YJhnM1qjNmNPyEv9Ekjg74wiIJbZxn6UMUYevgNCeKwYg2zQPjad8oigeOT8AuTVC1r15hSoXTWfWT54HD7QWrE3C9cmg
 
-
-
-GET  https://lkc94t7j75.execute-api.eu-central-1.amazonaws.com/prod/spaces?id=710896b5-0726-4e1f-a693-43833cf96049
+GET  {{url}}spaces
+Authorization: {{token}}
 ###
-POST https://lkc94t7j75.execute-api.eu-central-1.amazonaws.com/prod/spaces
+GET  {{url}}spaces?id=0a843f23-7bb0-47e1-8f0d-d7007c7c9931
+###
+POST {{url}}spaces
+Authorization: {{token}}
 content-type: application/json
 
 {
-    "location":"Paris"
+    "location":"Paris",
+    "name":"ASA"
 }
 ###
 
-PUT https://lkc94t7j75.execute-api.eu-central-1.amazonaws.com/prod/spaces?id:4124324
+
+DELETE https://lkc94t7j75.execute-api.eu-central-1.amazonaws.com/prod/spaces?id=0a843f23-7bb0-47e1-8f0d-d7007c7c9931
 content-type: application/json
 
 {
-    "location":"Paris"
+    "location":"india"
+}
+###
+PUT https://lkc94t7j75.execute-api.eu-central-1.amazonaws.com/prod/spaces?id=0a843f23-7bb0-47e1-8f0d-d7007c7c9931
+content-type: application/json
+
+{
+    "location":"india"
 }
 ###
