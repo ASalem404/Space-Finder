@@ -1,0 +1,21 @@
+
+
+
+
+GET  https://lkc94t7j75.execute-api.eu-central-1.amazonaws.com/prod/spaces?id=710896b5-0726-4e1f-a693-43833cf96049
+###
+POST https://lkc94t7j75.execute-api.eu-central-1.amazonaws.com/prod/spaces
+content-type: application/json
+
+{
+    "location":"Paris"
+}
+###
+
+PUT https://lkc94t7j75.execute-api.eu-central-1.amazonaws.com/prod/spaces?id:4124324
+content-type: application/json
+
+{
+    "location":"Paris"
+}
+###
