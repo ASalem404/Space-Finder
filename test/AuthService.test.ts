@@ -4,7 +4,11 @@ async function testAuth() {
   const service = new AuthService();
   const user = await service.signIn("ASalem404", "P@ssw0rd");
 
-  console.log(user.getSignInUserSession().getIdToken().getJwtToken());
+  const credentials = await service.generateTemporaryCredentials(user);
+
+  console.log(credentials);
+
+  return credentials;
 }
 
 testAuth();
