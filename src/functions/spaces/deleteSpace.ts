@@ -1,10 +1,14 @@
 import { DeleteItemCommand, DynamoDBClient } from "@aws-sdk/client-dynamodb";
-import { APIGatewayProxyEvent, APIGatewayProxyResultV2 } from "aws-lambda";
+import {
+  APIGatewayProxyEvent,
+  APIGatewayProxyResult,
+  APIGatewayProxyResultV2,
+} from "aws-lambda";
 import { isAdmin } from "../../utils/utils";
 export async function deleteSpace(
   event: APIGatewayProxyEvent,
   ddbClient: DynamoDBClient
-): Promise<APIGatewayProxyResultV2> {
+): Promise<APIGatewayProxyResult> {
   if (!isAdmin(event))
     return {
       statusCode: 401,

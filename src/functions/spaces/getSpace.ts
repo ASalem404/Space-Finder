@@ -1,10 +1,10 @@
 import { DynamoDBClient, GetItemCommand } from "@aws-sdk/client-dynamodb";
 import { unmarshall } from "@aws-sdk/util-dynamodb";
-import { APIGatewayProxyResultV2 } from "aws-lambda";
+import { APIGatewayProxyResult, APIGatewayProxyResultV2 } from "aws-lambda";
 export async function getSpace(
   id: string,
   ddbClient: DynamoDBClient
-): Promise<APIGatewayProxyResultV2> {
+): Promise<APIGatewayProxyResult> {
   const result = await ddbClient.send(
     new GetItemCommand({
       TableName: process.env.TABLE_NAME,

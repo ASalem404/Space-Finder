@@ -1,11 +1,15 @@
 import { DynamoDBClient, ScanCommand } from "@aws-sdk/client-dynamodb";
 import { unmarshall } from "@aws-sdk/util-dynamodb";
-import { APIGatewayProxyEvent, APIGatewayProxyResultV2 } from "aws-lambda";
+import {
+  APIGatewayProxyEvent,
+  APIGatewayProxyResult,
+  APIGatewayProxyResultV2,
+} from "aws-lambda";
 import { getSpace } from "./getSpace";
 export async function getSpaces(
   event: APIGatewayProxyEvent,
   ddbClient: DynamoDBClient
-): Promise<APIGatewayProxyResultV2> {
+): Promise<APIGatewayProxyResult> {
   if (event.queryStringParameters && "id" in event.queryStringParameters)
     return await getSpace(event.queryStringParameters.id, ddbClient);
 

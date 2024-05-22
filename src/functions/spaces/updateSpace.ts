@@ -1,11 +1,15 @@
 import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb";
 import { unmarshall } from "@aws-sdk/util-dynamodb";
-import { APIGatewayProxyEvent, APIGatewayProxyResultV2 } from "aws-lambda";
+import {
+  APIGatewayProxyEvent,
+  APIGatewayProxyResult,
+  APIGatewayProxyResultV2,
+} from "aws-lambda";
 import { parseJSON } from "../../utils/utils";
 export async function updateSpace(
   event: APIGatewayProxyEvent,
   ddbClient: DynamoDBClient
-): Promise<APIGatewayProxyResultV2> {
+): Promise<APIGatewayProxyResult> {
   if (!event.queryStringParameters?.id || !event.body)
     return {
       statusCode: 204,
