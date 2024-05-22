@@ -1,6 +1,10 @@
 import { randomUUID } from "crypto";
 import { ParseJsonError } from "./validator";
-import { APIGatewayProxyEvent } from "aws-lambda";
+import {
+  APIGatewayProxyEvent,
+  APIGatewayProxyResult,
+  APIGatewayProxyResultV2,
+} from "aws-lambda";
 
 export function parseJSON(event: any) {
   try {
@@ -19,4 +23,11 @@ export function isAdmin(event: APIGatewayProxyEvent) {
   if (groups) return (groups as string).includes("admins");
 
   return false;
+}
+
+export function addCorsHeaders(response: APIGatewayProxyResult) {
+  if (!response.headers) response.headers = {};
+
+  response.headers["Access-Control-Allow-Origin"] = "*";
+  response.headers["Access-Control-Allow-Methods"] = "*";
 }
