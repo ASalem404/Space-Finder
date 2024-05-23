@@ -11,7 +11,9 @@ const lambdaStack = new LambdaStack(app, "LambdaStack", {
   SpacesTable: dataStack.SpacesTable,
 });
 
-const authStack = new AuthStack(app, "AuthStack");
+const authStack = new AuthStack(app, "AuthStack", {
+  photosBucket: dataStack.photosBucket,
+});
 new ApiStack(app, "ApiStack", {
   SpaceLambdaIntegration: lambdaStack.spacelambdaIntegration,
   UserPool: authStack.userPool,
