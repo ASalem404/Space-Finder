@@ -19,7 +19,6 @@ Space-Finder is a serverless application designed to help users find and book av
 - [Node.js](https://nodejs.org/) (v14.x or later)
 - [AWS CLI](https://aws.amazon.com/cli/)
 - [AWS CDK](https://aws.amazon.com/cdk/) (v2.x or later)
-- [Docker](https://www.docker.com/products/docker-desktop) (for Lambda function packaging)
 - AWS Account
 
 ### Installation
