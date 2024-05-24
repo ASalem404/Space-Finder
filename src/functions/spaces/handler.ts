@@ -17,17 +17,21 @@ export async function handler(
       case "POST":
         const postedRequest = await postSpace(event, ddbClient);
         response = postedRequest;
+        break;
       case "GET":
         const getRequestResult = await getSpaces(event, ddbClient);
         response = getRequestResult;
+        break;
       case "PUT":
         const updatedResult = await updateSpace(event, ddbClient);
         response = updatedResult;
+        break;
       case "DELETE":
         const deletedResult = await deleteSpace(event, ddbClient);
         response = deletedResult;
-      default:
         break;
+      default:
+        throw new Error("this method is not implemented yet!!");
     }
 
     addCorsHeaders(response);
