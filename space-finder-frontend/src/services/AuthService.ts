@@ -20,7 +20,7 @@ Amplify.configure({
 export class AuthService {
   private user: CognitoUser | undefined;
 
-  private jwtToken: string | undefined;
+  public jwtToken: string | undefined;
   private temporaryCredentials: object | undefined;
 
   public async login(
@@ -66,6 +66,15 @@ export class AuthService {
       }),
     });
     const credentials = await cognitoIdentity.config.credentials();
+    console.log(credentials);
+
     return credentials;
+  }
+
+  public isAuthorized() {
+    if (this.user) {
+      return true;
+    }
+    return false;
   }
 }
