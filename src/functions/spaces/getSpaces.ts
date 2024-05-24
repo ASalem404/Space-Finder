@@ -23,5 +23,10 @@ export async function getSpaces(
   return {
     statusCode: 201,
     body: JSON.stringify({ result: unmarshalledResult }),
+    headers: {
+      "Access-Control-Allow-Origin": "*", // Allow all origins
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+    },
   };
 }
